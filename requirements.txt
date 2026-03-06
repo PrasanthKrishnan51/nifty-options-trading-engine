@@ -1,0 +1,10 @@
+
+pandas
+numpy
+pandas-ta
+requests
+websocket-client
+sqlalchemy
+python-dotenv
+fastapi
+uvicorn
