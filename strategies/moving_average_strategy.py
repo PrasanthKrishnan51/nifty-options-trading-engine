@@ -1,23 +1,9 @@
+"""
+Moving Average Strategy — compatibility wrapper around MACrossoverStrategy.
+"""
+from strategies.additional_strategies import MACrossoverStrategy
 
-import pandas as pd
-from strategies.base_strategy import BaseStrategy
-
-class MovingAverageStrategy(BaseStrategy):
-
-    def __init__(self, symbol, short_window=9, long_window=21):
-        super().__init__(symbol)
-        self.short_window = short_window
-        self.long_window = long_window
-
-    def generate_signal(self, data: pd.DataFrame):
-
-        data['short_ma'] = data['close'].rolling(self.short_window).mean()
-        data['long_ma'] = data['close'].rolling(self.long_window).mean()
-
-        if data['short_ma'].iloc[-1] > data['long_ma'].iloc[-1]:
-            return "BUY_CALL"
-
-        if data['short_ma'].iloc[-1] < data['long_ma'].iloc[-1]:
-            return "BUY_PUT"
-
-        return "HOLD"
+class MovingAverageStrategy(MACrossoverStrategy):
+    """Alias for MACrossoverStrategy (kept for backwards compatibility)."""
+    def __init__(self, symbol: str = "NIFTY", short_window: int = 9, long_window: int = 21):
+        super().__init__(fast_period=short_window, slow_period=long_window)

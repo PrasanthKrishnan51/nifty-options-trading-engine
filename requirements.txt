@@ -1,10 +1,30 @@
+# Core
+pandas>=2.0
+numpy>=1.24
+pandas-ta>=0.3
 
-pandas
-numpy
-pandas-ta
-requests
-websocket-client
-sqlalchemy
-python-dotenv
-fastapi
-uvicorn
+# Broker
+requests>=2.31
+websocket-client>=1.6
+upstox-python-sdk>=2.0
+
+# Database
+sqlalchemy>=2.0
+
+# Config
+python-dotenv>=1.0
+
+# API
+fastapi>=0.110
+uvicorn[standard]>=0.27
+pydantic>=2.0
+
+# Timezone
+pytz>=2024.1
+
+# Testing
+pytest>=8.0
+pytest-cov>=5.0
+
+# Optional — notifications
+# Already in stdlib: smtplib, urllib.request
